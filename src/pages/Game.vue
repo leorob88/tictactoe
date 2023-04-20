@@ -466,12 +466,15 @@ function openSettings() {
     text-align: center;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1600px) {
     #board {
         width: 250px;
         height: 250px;
         background-size: 250px 250px;
     }
+}
+
+@media (min-width: 1920px) {
 .equal {
     width: 2%;
     text-align: center;
