@@ -90,7 +90,7 @@ function undoSettings() {
 }
 
 .input-player.joker {
-  background-color: rgb(87, 63, 122);
+  background-color: rgb(116, 72, 178);
   color: rgb(0, 0, 0);
 }
 
