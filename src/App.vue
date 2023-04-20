@@ -87,6 +87,14 @@ let timer = setInterval(function () {
   color: rgb(26, 26, 26);
 }
 
+button {
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: outset 1px black;
+}
+
 button.dark {
   background-color: rgb(40, 40, 40);
   color: rgb(238, 238, 238);
@@ -189,12 +197,6 @@ button, input {
   border-radius: 5px;
 }
 
-button {
-  padding-left: 7px;
-  padding-right: 7px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
 
 input {
   font-size: 0.9em;
@@ -224,6 +226,13 @@ button {
   padding-top: 3px;
   padding-bottom: 3px;
 }
+}
+
+@media (min-width: 1920px) {
+  button {
+    
+  border: outset 2px black;
+  }
 }
 
 @media (min-width: 2560px) {
