@@ -44,7 +44,7 @@ let timer = setInterval(function () {
 
 * {
   font-family: "Quicksand", "Verdana", "Arial", serif;
-  font-size: 0.9em;
+  font-size: 0.95em;
 }
 
 #main-page {
@@ -176,7 +176,7 @@ button.joker:disabled {
 }
 
 .padded{
-  padding-top: 8px;
+  padding-top: 15px;
 }
 
 .center-text {
@@ -206,14 +206,6 @@ input {
 }
 
 
-@media (min-width: 1280px) {      /*trovare modo per lavorare su media query piccole*/
-  * {
-    font-size: 0.95em;
-  }
-.padded{
-  padding-top: 15px;
-}
-}
 
 @media (min-width: 1600px) {
   * {

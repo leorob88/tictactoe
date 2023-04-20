@@ -66,47 +66,47 @@ function lineUpdate() {
         }
         //minor graphical fixes
         //for X
-        if (document.body.clientWidth >= 2560) { // 4k, 1440p
+        if (document.body.clientWidth >= 2560) {
             if (index == 3 || index == 5) {
                 x1 -= 1;
                 x2 -= 1;
             }
-        } else if (document.body.clientWidth >= 1920) { // 1080p
+        } else if (document.body.clientWidth >= 1920) {
             if (index == 3 || index == 5) {
                 x1 -= 1;
                 x2 -= 1;
             }
-        } else if (document.body.clientWidth >= 1600) { // 900p
+        } else if (document.body.clientWidth >= 1600) {
             if (index == 3 || index == 5) {
                 x1 -= 1;
                 x2 -= 1;
             }
-        } else if (document.body.clientWidth >= 1280) { // 720p
+        } else if (document.body.clientWidth >= 1280) {
             if (index == 3 || index == 5) {
                 x1 -= 1;
                 x2 -= 1;
             }
-        } else { // 720p
+        } else {
             if (index == 3 || index == 5) {
                 x1 -= 1;
                 x2 -= 1;
             }
         }
         //for Y
-        if (document.body.clientWidth >= 3840) { // 4k
+        if (document.body.clientWidth >= 3840) {
             y1 += 3;
             y2 += 3;
-        } else if (document.body.clientWidth >= 2560) { // 1440p
+        } else if (document.body.clientWidth >= 2560) {
             if (index != 0 && index != 2) {
                 y1 += 1;
                 y2 += 1;
             }
-        } else if (document.body.clientWidth >= 1920) { // 1080p
+        } else if (document.body.clientWidth >= 1920) {
             if (index > 2) {
                 y1 += 1;
                 y2 += 1;
             }
-        } else if (document.body.clientWidth >= 1600) { // 900p
+        } else if (document.body.clientWidth >= 1600) {
             if (index == 0 || index == 2) {
                 y1 -= 1;
                 y2 -= 1;
@@ -114,7 +114,7 @@ function lineUpdate() {
                 y1 += 1;
                 y2 += 1;
             }
-        } else if (document.body.clientWidth >= 1280) { // 720p
+        } else if (document.body.clientWidth >= 1280) {
             if (index == 0) {
                 y1 -= 1;
                 y2 -= 1;
@@ -427,9 +427,9 @@ function openSettings() {
 }
 
     #board {
-        width: 160px;
-        height: 160px;
-        background-size: 160px 160px;
+        width: 190px;
+        height: 190px;
+        background-size: 190px 190px;
     }
 
 #board.dark, #board.jrpg, #board.wario {
@@ -464,14 +464,6 @@ function openSettings() {
 .equal {
     width: 2.2%;
     text-align: center;
-}
-
-@media (min-width: 1280px) {
-    #board {
-        width: 190px;
-        height: 190px;
-        background-size: 190px 190px;
-    }
 }
 
 @media (min-width: 1920px) {

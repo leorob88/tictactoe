@@ -107,7 +107,7 @@ function checkWinner() {
 span {
   display: table-cell;
   vertical-align: middle;
-  font-size: 4.4em;
+  font-size: 3.6em;
 }
 
 .selected {
@@ -163,11 +163,6 @@ span {
   border-left-color: rgb(0, 0, 0);
 }
 
-@media (min-width: 1280px) {
-  span {
-    font-size: 3.6em;
-  }
-}
 @media (min-width: 1600px) {
   span {
     font-size: 2.8em;

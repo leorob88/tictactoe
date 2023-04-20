@@ -56,7 +56,7 @@ function undoSettings() {
 <style>
 
 .input-player{
-  padding: 2px;
+  padding: 4px;
 }
 
 #timer-check{
@@ -102,11 +102,6 @@ function undoSettings() {
   color: rgb(37, 37, 37);
 }
 
-@media (min-width: 1280px) {
-.input-player{
-  padding: 4px;
-}
-}
 
 @media (min-width: 2560px) {
 .input-player{

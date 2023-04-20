@@ -27,14 +27,9 @@ function startGame(secondPlayer) {
 <style>
 
 #ai-player {
-  padding-top: 100px;
+  padding-top: 150px;
 }
 
-@media (min-width: 1280px) {
-    #ai-player {
-    padding-top: 150px;
-  }
-}
 
 @media (min-width: 1920px) {
     #ai-player {

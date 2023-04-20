@@ -28,13 +28,7 @@ function startGame() {
 <style>
 
 #new-game {
-  padding-top: 100px;
-}
-
-@media (min-width: 1280px) {
-    #new-game {
-    padding-top: 150px;
-  }
+  padding-top: 150px;
 }
 
 @media (min-width: 1920px) {
