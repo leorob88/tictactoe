@@ -98,7 +98,7 @@ function undoSettings() {
   color: rgb(197, 197, 197);
 }
 
-.input-player.minecraft::placeholder {
+.input-player.minecraft::placeholder, .input-player.joker::placeholder {
   color: rgb(37, 37, 37);
 }
 

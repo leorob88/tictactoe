@@ -83,7 +83,7 @@ let timer = setInterval(function () {
 }
 
 #main-page.joker {
-  background-color: rgb(155, 96, 238);
+  background-color: rgb(161, 95, 253);
   color: rgb(26, 26, 26);
 }
 
