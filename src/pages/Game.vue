@@ -7,13 +7,13 @@ import { settings } from "../assets/js/Settings.js";
 
 provide("line", lineUpdate);
 
-//victory ilne element needs fixes to avoid unintended positioning on window resize
+// victory ilne element needs fixes to avoid unintended positioning on window resize
 onMounted(() => {
     window.addEventListener('resize', lineUpdate);
 })
 
 
-//draw a line striking through the winning cells
+// draw a line striking through the winning cells
 function lineUpdate() {
     if (settings.game.tris) {
         // winning cell is usually top left, but one combination has it in bottom left, so the svg still needs to be top left
@@ -28,12 +28,12 @@ function lineUpdate() {
         let width = div.getBoundingClientRect().width, height = div.getBoundingClientRect().height;
         if (index < 3 || index > 5) { width *= 3; }
         if (index > 2) { height *= 3; }
-        //setting svg position and size
+        // setting svg position and size
         settings.game.svg_line.left = cell.getBoundingClientRect().left;
         settings.game.svg_line.top = cell.getBoundingClientRect().top;
         settings.game.svg_line.width = width;
         settings.game.svg_line.height = height;
-        //getting coordinates for the line strike
+        // getting coordinates for the line strike
         let diff = 0;
         if (index > 2) {
             diff = settings.game.svg_line.height / 12;
@@ -64,74 +64,6 @@ function lineUpdate() {
         } else {
             y2 /= 2;
         }
-        //minor graphical fixes
-        //for X
-        if (document.body.clientWidth >= 2560) {
-            if (index == 3 || index == 5) {
-                x1 -= 1;
-                x2 -= 1;
-            }
-        } else if (document.body.clientWidth >= 1920) {
-            if (index == 3 || index == 5) {
-                x1 -= 1;
-                x2 -= 1;
-            }
-        } else if (document.body.clientWidth >= 1600) {
-            if (index == 3 || index == 5) {
-                x1 -= 1;
-                x2 -= 1;
-            }
-        } else if (document.body.clientWidth >= 1280) {
-            if (index == 3 || index == 5) {
-                x1 -= 1;
-                x2 -= 1;
-            }
-        } else {
-            if (index == 3 || index == 5) {
-                x1 -= 1;
-                x2 -= 1;
-            }
-        }
-        //for Y
-        if (document.body.clientWidth >= 3840) {
-            y1 += 3;
-            y2 += 3;
-        } else if (document.body.clientWidth >= 2560) {
-            if (index != 0 && index != 2) {
-                y1 += 1;
-                y2 += 1;
-            }
-        } else if (document.body.clientWidth >= 1920) {
-            if (index > 2) {
-                y1 += 1;
-                y2 += 1;
-            }
-        } else if (document.body.clientWidth >= 1600) {
-            if (index == 0 || index == 2) {
-                y1 -= 1;
-                y2 -= 1;
-            } else if (index != 1) {
-                y1 += 1;
-                y2 += 1;
-            }
-        } else if (document.body.clientWidth >= 1280) {
-            if (index == 0) {
-                y1 -= 1;
-                y2 -= 1;
-            } else {
-                y1 += 1;
-                y2 += 1;
-            }
-        } else {
-            if (index == 0) {
-                y1 -= 1;
-                y2 -= 1;
-            } else if (index > 2) {
-                y1 += 1;
-                y2 += 1;
-            }
-        }
-        //
         settings.game.svg_line.x1 = x1;
         settings.game.svg_line.y1 = y1;
         settings.game.svg_line.x2 = x2;
@@ -279,7 +211,7 @@ function checkDraw() {
     }
 }
 
-//random move for a.i.
+// random move for a.i.
 function randomMove() {
     let freeCells = [];
     for (let move in settings.game.movesDone) {
@@ -293,13 +225,13 @@ function randomMove() {
     }
 }
 
-//after a.i. move it's player1 turn
+// after a.i. move it's player1 turn
 function virtualToPlayer() {
     settings.game.currentPlayer = 1;
     settings.game.remainingTime = 20;
 }
 
-//resets board and game data
+// resets board and game data
 function eraseBoard() {
     settings.game.hoveredCell = "";
     for (let option in settings.game.svg_line) {
@@ -360,14 +292,14 @@ function openSettings() {
             </div>
             <div></div>
         </div>
-        <div :class="['centered', 'padded', {'game-over': !settings.game.playing}]">
+        <div :class="['centered', 'padded', { 'game-over': !settings.game.playing }]">
             <div>
                 <p>
                     {{
-                    settings.game.tris ? settings.game.winner + ' WINS THIS GAME!' :
-                    settings.game.draw ? 'PLAYERS CAME TO A DRAW!' :
-                    settings.game.timeUp ? 'TIME IS UP! ' + settings.game.winner + ' WINS THIS GAME!' :
-                    'Currently playing: ' + (settings.game.currentPlayer == 1 ? settings.data.player1 : settings.data.player2)
+                        settings.game.tris ? settings.game.winner + ' WINS THIS GAME!' :
+                        settings.game.draw ? 'PLAYERS CAME TO A DRAW!' :
+                        settings.game.timeUp ? 'TIME IS UP! ' + settings.game.winner + ' WINS THIS GAME!' :
+                        'Currently playing: ' + (settings.game.currentPlayer == 1 ? settings.data.player1 : settings.data.player2)
                     }}
                 </p>
             </div>
@@ -382,16 +314,14 @@ function openSettings() {
                 </div>
             </div>
         </div>
-        <div v-if="settings.data.timer" id="show-time" :class="['padded', 'timer', {'hidden': !settings.game.playing}]">
+        <div v-if="settings.data.timer" id="show-time" :class="['padded', 'timer', { 'hidden': !settings.game.playing }]">
             <br />
             <div id="time-title" class="equal">Time:</div>
             <div id="time-remaining" class="equal">{{ settings.game.remainingTime }}s</div>
         </div>
         <div class="centered">
-            <button id="btn-erase" :class="settings.themes[settings.data.theme]" @click="eraseBoard()"
-                :disabled="!settings.game.playing">Erase</button>
-            <button id="btn-settings" :class="settings.themes[settings.data.theme]"
-                @click="openSettings()">Settings</button>
+            <button id="btn-erase" :class="settings.themes[settings.data.theme]" @click="eraseBoard()" :disabled="!settings.game.playing">Erase</button>
+            <button id="btn-settings" :class="settings.themes[settings.data.theme]" @click="openSettings()">Settings</button>
         </div>
         <div v-show="!settings.game.playing" class="centered">
             <button id="btn-rematch" :class="settings.themes[settings.data.theme]" @click="eraseBoard()">Rematch</button>
@@ -411,26 +341,28 @@ function openSettings() {
 }
 
 .game-over {
-  animation: zoom-in-zoom-out 1.5s ease infinite;
+    animation: zoom-in-zoom-out 1.5s ease infinite;
 }
 
 @keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1);
-  }
-  50% {
-    transform: scale(1.5, 1.5);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
 }
 
-    #board {
-        width: 190px;
-        height: 190px;
-        background-size: 190px 190px;
-    }
+#board {
+    width: 190px;
+    height: 190px;
+    background-size: 190px 190px;
+}
 
 #board.dark, #board.jrpg, #board.wario {
     background-image: url("../assets/images/blackboard.png");
@@ -475,10 +407,10 @@ function openSettings() {
 }
 
 @media (min-width: 1920px) {
-.equal {
-    width: 2%;
-    text-align: center;
-}
+    .equal {
+        width: 2%;
+        text-align: center;
+    }
 }
 
 @media (min-width: 2560px) {
@@ -487,10 +419,11 @@ function openSettings() {
         height: 400px;
         background-size: 400px 400px;
     }
-.equal {
-    width: 2.3%;
-    text-align: center;
-}
+
+    .equal {
+        width: 2.3%;
+        text-align: center;
+    }
 }
 
 @media (min-width: 3840px) {

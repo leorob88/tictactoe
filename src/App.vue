@@ -7,7 +7,7 @@ import Game from "./pages/Game.vue";
 import Settings from "./pages/Settings.vue";
 import { settings } from "./assets/js/Settings.js";
 
-//timer for players moves
+// timer for players moves
 let timer = setInterval(function () {
   if (settings.game.playing && settings.data.timer && !settings.game.paused) {
     settings.game.remainingTime--;
@@ -104,7 +104,7 @@ button.dark:hover {
   background-color: rgb(55, 55, 55);
 }
 
-button.dark:disabled {  
+button.dark:disabled {
   background-color: rgb(32, 32, 32);
 }
 
@@ -122,7 +122,7 @@ button.light:hover {
 button.light:disabled {
   background-color: rgb(186, 186, 186);
   border-top-color: rgb(170, 170, 170);
-  border-left-color: rgb(170, 170, 170) ;
+  border-left-color: rgb(170, 170, 170);
   border-bottom-color: rgb(116, 116, 116);
   border-right-color: rgb(116, 116, 116);
 }
@@ -183,7 +183,7 @@ button.joker:disabled {
   padding-top: 20px;
 }
 
-.padded{
+.padded {
   padding-top: 15px;
 }
 
@@ -202,36 +202,36 @@ input {
   font-size: 0.9em;
 }
 
-.inherit-size{
+.inherit-size {
   font-size: inherit;
-  display:inline;
+  display: inline;
 }
-
-
 
 @media (min-width: 1600px) {
   * {
     font-size: 1em;
   }
-.padded{
-  padding-top: 20px;
-}
-button, input {
-  margin: 8px;
-  border-radius: 6px;
-}
-button {
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-}
+
+  .padded {
+    padding-top: 20px;
+  }
+
+  button, input {
+    margin: 8px;
+    border-radius: 6px;
+  }
+
+  button {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
 }
 
 @media (min-width: 1920px) {
   button {
-    
-  border: outset 2px black;
+    border: outset 2px black;
   }
 }
 
@@ -240,38 +240,43 @@ button {
     font-size: 1.1em;
   }
 
-.dn-padded {
-  padding-top: 30px;
-}
-.padded{
-  padding-top: 30px;
-}
-input {
-  font-size: 1em;
-}
-button, input {
-  margin: 15px;
-  border-radius: 8px;
-}
+  .dn-padded {
+    padding-top: 30px;
+  }
 
-button {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
+  .padded {
+    padding-top: 30px;
+  }
+
+  input {
+    font-size: 1em;
+  }
+
+  button, input {
+    margin: 15px;
+    border-radius: 8px;
+  }
+
+  button {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 
 @media (min-width: 3840px) {
   * {
     font-size: 1.2em;
   }
-.dn-padded {
-  padding-top: 40px;
-}
-.padded{
-  padding-top: 40px;
-}
+
+  .dn-padded {
+    padding-top: 40px;
+  }
+
+  .padded {
+    padding-top: 40px;
+  }
 }
 
 </style>

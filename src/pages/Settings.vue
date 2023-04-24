@@ -17,9 +17,9 @@ function updatePlayers() {
 function updateSettings() {
   settings.visibility.settingsVisible = false;
   if (settings.game.newGame) {
-    settings.visibility.virtualVisible = true 
-  } else { 
-    settings.visibility.gameVisible = true; 
+    settings.visibility.virtualVisible = true
+  } else {
+    settings.visibility.gameVisible = true;
     settings.game.paused = false;
   }
 }
@@ -35,41 +35,48 @@ function undoSettings() {
 </script>
 
 <template>
-    <div id="settings">
-        <div class="center-text">
-            <div class="padded">
-            <p>Players names:</p>
-            <input type="text" id="player1-setup" :class="['input-player', settings.themes[settings.data.theme]]" :placeholder="settings.data.player1" maxlength="16">
-            <input type="text" id="player2-setup" :class="['input-player', settings.themes[settings.data.theme]]" :placeholder="settings.data.player2" maxlength="16"></div>
-            <div class="padded"><input type="checkbox" :checked="settings.data.timer" id="timer-check" @click="settings.data.timer = !settings.data.timer" />
-            <label for="timer-check">Timer</label></div>
-            <div class="padded"><p>Theme:</p>
-            <div class="inherit-size" v-for="theme in settings.themes">
-                <Theme :id=theme :theme=settings.themes.indexOf(theme) />
-            </div></div>
-            <div class="padded"><button id="btn-ok" :class="settings.themes[settings.data.theme]" @click="updateSettings()">Ok</button>
-            <button id="btn-cancel" :class="settings.themes[settings.data.theme]" @click="undoSettings()">Cancel</button></div>            
+  <div id="settings">
+    <div class="center-text">
+      <div class="padded">
+        <p>Players names:</p>
+        <input type="text" id="player1-setup" :class="['input-player', settings.themes[settings.data.theme]]" :placeholder="settings.data.player1" maxlength="16">
+        <input type="text" id="player2-setup" :class="['input-player', settings.themes[settings.data.theme]]" :placeholder="settings.data.player2" maxlength="16">
+      </div>
+      <div class="padded">
+        <input type="checkbox" :checked="settings.data.timer" id="timer-check" @click="settings.data.timer = !settings.data.timer" />
+        <label for="timer-check">Timer</label>
+      </div>
+      <div class="padded">
+        <p>Theme:</p>
+        <div class="inherit-size" v-for="theme in settings.themes">
+          <Theme :id=theme :theme=settings.themes.indexOf(theme) />
         </div>
+      </div>
+      <div class="padded">
+        <button id="btn-ok" :class="settings.themes[settings.data.theme]" @click="updateSettings()">Ok</button>
+        <button id="btn-cancel" :class="settings.themes[settings.data.theme]" @click="undoSettings()">Cancel</button>
+      </div>
     </div>
+  </div>
 </template>
 
 <style>
 
-.input-player{
+.input-player {
   padding: 4px;
 }
 
-#timer-check{
-        width: 7px;
-        height: 7px;
-    }
+#timer-check {
+  width: 7px;
+  height: 7px;
+}
 
 .input-player.dark {
   background-color: rgb(19, 19, 19);
   color: rgb(255, 255, 255);
 }
 
-.input-player.light{
+.input-player.light {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
 }
@@ -104,20 +111,21 @@ function undoSettings() {
 
 
 @media (min-width: 2560px) {
-.input-player{
-  padding: 5px;
-}
-#timer-check{
-        width: 13px;
-        height: 13px;
-    }
+  .input-player {
+    padding: 5px;
+  }
+
+  #timer-check {
+    width: 13px;
+    height: 13px;
+  }
 }
 
 @media (min-width: 3840px) {
-#timer-check{
-        width: 18px;
-        height: 18px;
-    }
+  #timer-check {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 </style>

@@ -15,7 +15,7 @@ const props = defineProps({
   }
 });
 
-//detects effect of the move by storing it and checking for a winner or draw
+// detects effect of the move by storing it and checking for a winner or draw
 function cellPlay(position) {
   if (settings.game.movesDone[position] == "" && settings.game.playing) {
     if (settings.game.currentPlayer == 1) {
@@ -85,8 +85,7 @@ function checkWinner() {
 
 <template>
   <div :class="['cell', settings.themes[settings.data.theme], props.classes, { 'selected': settings.game.hoveredCell == props.position && settings.game.movesDone[props.position] == '' && settings.game.playing }]">
-    <span :id="props.position" @mouseenter="settings.game.hoveredCell = position" @mouseleave="settings.game.hoveredCell = ''"
-      @click="cellPlay(props.position)">
+    <span :id="props.position" @mouseenter="settings.game.hoveredCell = position" @mouseleave="settings.game.hoveredCell = ''" @click="cellPlay(props.position)">
       {{ settings.game.movesDone[props.position] }}
     </span>
   </div>
@@ -173,10 +172,11 @@ span {
   span {
     font-size: 3.3em;
   }
-.selected {
-  border: solid 2px orange;
-  border-radius: 2px;
-}
+
+  .selected {
+    border: solid 2px orange;
+    border-radius: 2px;
+  }
 }
 
 @media (min-width: 2560px) {

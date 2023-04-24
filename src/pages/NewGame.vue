@@ -13,16 +13,16 @@ function startGame() {
 </script>
 
 <template>
-    <div id="new-game">
-        <div class="center-text">
-            <p>First move to Player{{ settings.game.currentPlayer }}</p>
-        </div>
-        <div class="center-text padded">
-            <div class="inherit-size">
-                <button id="btn-start" :class="settings.themes[settings.data.theme]" @click="startGame()">Let's go!</button>
-            </div>
-        </div>
+  <div id="new-game">
+    <div class="center-text">
+      <p>First move to Player{{ settings.game.currentPlayer }}</p>
     </div>
+    <div class="center-text padded">
+      <div class="inherit-size">
+        <button id="btn-start" :class="settings.themes[settings.data.theme]" @click="startGame()">Let's go!</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style>
@@ -32,7 +32,7 @@ function startGame() {
 }
 
 @media (min-width: 1920px) {
-    #new-game {
+  #new-game {
     padding-top: 200px;
   }
 }

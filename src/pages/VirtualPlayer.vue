@@ -30,7 +30,6 @@ function startGame(secondPlayer) {
   padding-top: 150px;
 }
 
-
 @media (min-width: 1920px) {
     #ai-player {
     padding-top: 200px;
