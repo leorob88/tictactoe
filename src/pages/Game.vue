@@ -399,6 +399,27 @@ function openSettings() {
     text-align: center;
 }
 
+@media (min-width: 576px) {
+    #board {
+        width: 360px;
+        height: 360px;
+        background-size: 360px 360px;
+    }
+
+    .equal {
+        width: 6%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    #board {
+        width: 480px;
+        height: 480px;
+        background-size: 480px 480px;
+    }
+}
+
 @media (min-width: 992px) {
     #board {
         width: 600px;

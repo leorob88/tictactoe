@@ -30,13 +30,10 @@ let timer = setInterval(function () {
   }
 }, 1000);
 
-let ciao = document.body.clientWidth;
-
 </script>
 
 <template>
   <div id="main-page" :class="settings.themes[settings.data.theme]">
-    {{ ciao }}
     <Welcome v-if="settings.visibility.welcomeVisible" />
     <VirtualPlayer v-if="settings.visibility.virtualVisible" />
     <NewGame v-if="settings.visibility.newGameVisible" />
@@ -49,7 +46,7 @@ let ciao = document.body.clientWidth;
 
 * {
   font-family: "Quicksand", "Verdana", "Arial", serif;
-  font-size: 0.95em;
+  font-size: 0.91em;
 }
 
 #main-page {
@@ -93,8 +90,8 @@ let ciao = document.body.clientWidth;
 }
 
 button {
-  padding-left: 7px;
-  padding-right: 7px;
+  padding-left: 6px;
+  padding-right: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
   border: outset 1px black;
@@ -185,11 +182,11 @@ button.joker:disabled {
 }
 
 .dn-padded {
-  padding-top: 20px;
+  padding-top: 25px;
 }
 
 .padded {
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .center-text {
@@ -198,10 +195,9 @@ button.joker:disabled {
 }
 
 button, input {
-  margin: 5px;
-  border-radius: 5px;
+  margin: 2px;
+  border-radius: 3px;
 }
-
 
 input {
   font-size: 0.9em;
@@ -212,13 +208,27 @@ input {
   display: inline;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 576px) {
   * {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 
-  .dn-padded {
-    padding-top: 25px;
+  button, input {
+    margin: 4px;
+    border-radius: 4px;
+  }
+
+  button {
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+}
+
+@media (min-width: 768px) {
+  * {
+    font-size: 1.05em;
   }
 
   .padded {
@@ -238,6 +248,12 @@ input {
   }
 }
 
+@media (min-width: 992px) {
+  * {
+    font-size: 1.1em;
+  }
+}
+
 @media (min-width: 1280px) {
   * {
     font-size: 1em;
@@ -249,9 +265,6 @@ input {
 }
 
 @media (min-width: 1600px) {
-  * {
-    font-size: 1em;
-  }
 
   .padded {
     padding-top: 20px;

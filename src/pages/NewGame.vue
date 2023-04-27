@@ -31,7 +31,7 @@ function startGame() {
   padding-top: 150px;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 576px) {
   #new-game {
     padding-top: 200px;
   }

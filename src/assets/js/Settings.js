@@ -4,13 +4,13 @@ export const settings = reactive({
   data: {
     player1: "Player1",
     player2: "Player2",
-    theme: 0,
+    theme: 2,
     timer: false
   },
   tempData: {
     player1: "Player1",
     player2: "Player2",
-    theme: 0,
+    theme: 2,
     timer: false
   },
   game: {

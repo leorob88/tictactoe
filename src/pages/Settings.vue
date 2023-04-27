@@ -70,12 +70,12 @@ function undoSettings() {
 <style>
 
 .input-player {
-  padding: 4px;
+  padding: 2px;
 }
 
 #timer-check {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 .input-player.dark {
@@ -116,11 +116,29 @@ function undoSettings() {
   color: rgb(37, 37, 37);
 }
 
-@media (min-width: 992px) {
+@media (min-width: 576px) {
+  .input-player {
+    padding: 3px;
+  }
+
+  #timer-check {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (min-width: 768px) {
   .input-player {
     padding: 5px;
   }
 
+  #timer-check {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (min-width: 992px) {
   #timer-check {
     width: 12px;
     height: 12px;

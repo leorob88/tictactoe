@@ -108,7 +108,7 @@ function checkWinner() {
 span {
   display: table-cell;
   vertical-align: middle;
-  font-size: 3.6em;
+  font-size: 3.8em;
 }
 
 .selected {
@@ -162,6 +162,18 @@ span {
 .right-cell.light, .right-cell.minecraft, .right-cell.joker {
   border-left: 2px solid;
   border-left-color: rgb(0, 0, 0);
+}
+
+@media (min-width: 576px) {
+  span {
+    font-size: 3.5em;
+  }
+}
+
+@media (min-width: 768px) {
+  span {
+    font-size: 3.3em;
+  }
 }
 
 @media (min-width: 992px) {
