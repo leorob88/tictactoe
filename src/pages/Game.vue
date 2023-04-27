@@ -395,7 +395,7 @@ function openSettings() {
 }
 
 .equal {
-    width: 2.2%;
+    width: 7%;
     text-align: center;
 }
 
