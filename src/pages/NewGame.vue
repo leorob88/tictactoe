@@ -31,6 +31,18 @@ function startGame() {
   padding-top: 150px;
 }
 
+@media (min-width: 992px) {
+  #new-game {
+    padding-top: 200px;
+  }
+}
+
+@media (min-width: 1280px) {
+  #new-game {
+    padding-top: 150px;
+  }
+}
+
 @media (min-width: 1920px) {
   #new-game {
     padding-top: 200px;

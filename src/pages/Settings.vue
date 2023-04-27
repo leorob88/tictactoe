@@ -12,6 +12,13 @@ onMounted(() => {
 function updatePlayers() {
   settings.data.player1 = document.getElementById("player1-setup").value || settings.tempData.player1;
   settings.data.player2 = document.getElementById("player2-setup").value || settings.tempData.player2;
+  if (settings.game.tris) {
+    if (settings.game.winnerId == 1) {
+      settings.game.winner = settings.data.player1;
+    } else {
+      settings.game.winner = settings.data.player2;
+    }
+  }
 }
 
 function updateSettings() {
@@ -111,12 +118,12 @@ function undoSettings() {
 
 @media (min-width: 992px) {
   .input-player {
-    padding: 4px;
+    padding: 5px;
   }
 
   #timer-check {
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
   }
 }
 

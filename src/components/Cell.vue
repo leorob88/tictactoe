@@ -63,12 +63,14 @@ function checkWinner() {
     if (settings.game.movesDone[triad[0]] == "X" && settings.game.movesDone[triad[1]] == "X" && settings.game.movesDone[triad[2]] == "X") {
       xTris = true;
       settings.game.winner = settings.data.player1;
+      settings.game.winnerId = 1;
       settings.game.player1Score++;
       settings.game.winnerScore = settings.game.player1Score;
     }
     else if (settings.game.movesDone[triad[0]] == "O" && settings.game.movesDone[triad[1]] == "O" && settings.game.movesDone[triad[2]] == "O") {
       oTris = true;
       settings.game.winner = settings.data.player2;
+      settings.game.winnerId = 2;
       settings.game.player2Score++;
       settings.game.winnerScore = settings.game.player2Score;
     }
@@ -164,7 +166,7 @@ span {
 
 @media (min-width: 992px) {
   span {
-    font-size: 3.2em;
+    font-size: 3em;
   }
 }
 

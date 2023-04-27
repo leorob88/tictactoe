@@ -132,6 +132,7 @@ function virtualPlayerMove() {
             let winningTriad = almostWon[Math.floor(Math.random() * almostWon.length)];
             settings.game.movesDone[winningTriad["noOCell"]] = "O";
             settings.game.winner = settings.data.player2;
+            settings.game.winnerId = 2;
             settings.game.player2Score++;
             settings.game.winnerScore = settings.game.player2Score;
             settings.game.tris = true;
@@ -242,15 +243,16 @@ function eraseBoard() {
         settings.game.movesDone[option] = "";
     }
     settings.game.remainingTime = 20;
-    settings.game.timeUp = false;
     let randomPlayer = Math.floor(Math.random() * 2) + 1;
     settings.game.currentPlayer = randomPlayer;
+    settings.game.timeUp = false;
     settings.game.tris = false;
     settings.game.draw = false;
+    settings.game.playing = true;
     settings.game.winner = "";
+    settings.game.winnerId = 0;
     settings.game.winningTriad.index = -1;
     settings.game.winningTriad.cells = ["", "", ""];
-    settings.game.playing = true;
     if (settings.game.currentPlayer == 2 && settings.game.vsCpu) {
         randomMove();
     }
@@ -343,14 +345,13 @@ function openSettings() {
 .game-over {
     animation: zoom-in-zoom-out 1.5s ease infinite;
 }
-
 @keyframes zoom-in-zoom-out {
     0% {
         transform: scale(1, 1);
     }
 
     50% {
-        transform: scale(1.5, 1.5);
+        transform: scale(1.25, 1.25);
     }
 
     100% {
@@ -400,18 +401,32 @@ function openSettings() {
 
 @media (min-width: 992px) {
     #board {
-        width: 250px;
-        height: 250px;
-        background-size: 250px 250px;
+        width: 600px;
+        height: 600px;
+        background-size: 600px 600px;
     }
 
     .equal {
-        width: 2.8%;
+        width: 5.5%;
         text-align: center;
     }
 }
 
 @media (min-width: 1280px) {
+    @keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(1, 1);
+        }
+
+        50% {
+            transform: scale(1.5, 1.5);
+        }
+
+        100% {
+            transform: scale(1, 1);
+        }
+    }
+
     #board {
         width: 250px;
         height: 250px;
@@ -421,14 +436,6 @@ function openSettings() {
     .equal {
         width: 2.8%;
         text-align: center;
-    }
-}
-
-@media (min-width: 1600px) {
-    #board {
-        width: 250px;
-        height: 250px;
-        background-size: 250px 250px;
     }
 }
 

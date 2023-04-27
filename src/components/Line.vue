@@ -26,7 +26,7 @@ line {
 
 @media (min-width: 992px) {
   line {
-    stroke-width: 2;
+    stroke-width: 4;
   }
 }
 

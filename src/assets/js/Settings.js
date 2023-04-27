@@ -52,6 +52,7 @@ export const settings = reactive({
     tris: false,
     vsCpu: false,
     winner: "",
+    winnerId: 0,
     winnerScore: 0,
     winningTriad: {index: -1, cells: ["", "", ""]}
   },

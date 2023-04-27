@@ -14,13 +14,15 @@ let timer = setInterval(function () {
     if (settings.game.remainingTime == 0) {
       settings.game.timeUp = true;
       settings.game.playing = false;
-      if (settings.game.currentPlayer = 1) {
+      if (settings.game.currentPlayer == 1) {
         settings.game.winner = settings.data.player2;
+        settings.game.winnerId = 2;
         settings.game.player2Score++;
         settings.game.winnerScore = settings.game.player2Score;
       }
       else {
         settings.game.winner = settings.data.player1;
+        settings.game.winnerId = 1;
         settings.game.player1Score++;
         settings.game.winnerScore = settings.game.player1Score;
       }
@@ -209,11 +211,15 @@ input {
 
 @media (min-width: 992px) {
   * {
-    font-size: 1em;
+    font-size: 1.1em;
+  }
+
+  .dn-padded {
+    padding-top: 25px;
   }
 
   .padded {
-    padding-top: 18px;
+    padding-top: 15px;
   }
 
   button, input {
@@ -222,10 +228,10 @@ input {
   }
 
   button {
-    padding-left: 7px;
-    padding-right: 7px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
 }
 
@@ -236,18 +242,6 @@ input {
 
   .padded {
     padding-top: 18px;
-  }
-
-  button, input {
-    margin: 6px;
-    border-radius: 5px;
-  }
-
-  button {
-    padding-left: 7px;
-    padding-right: 7px;
-    padding-top: 2px;
-    padding-bottom: 2px;
   }
 }
 
