@@ -360,9 +360,9 @@ function openSettings() {
 }
 
 #board {
-    width: 190px;
-    height: 190px;
-    background-size: 190px 190px;
+    width: 250px;
+    height: 250px;
+    background-size: 250px 250px;
 }
 
 #board.dark, #board.jrpg, #board.wario {

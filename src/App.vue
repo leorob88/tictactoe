@@ -252,6 +252,10 @@ input {
   * {
     font-size: 1.1em;
   }
+
+  .padded {
+    padding-top: 18px;
+  }
 }
 
 @media (min-width: 1280px) {
