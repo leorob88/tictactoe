@@ -318,8 +318,8 @@ function openSettings() {
         </div>
         <div v-if="settings.data.timer" id="show-time" :class="['padded', 'timer', { 'hidden': !settings.game.playing }]">
             <br />
-            <div id="time-title" class="equal">Time:</div>
-            <div id="time-remaining" class="equal">{{ settings.game.remainingTime }}s</div>
+            <div id="time-title">Time:&nbsp</div>
+            <div id="time-remaining">&nbsp{{ settings.game.remainingTime }}s</div>
         </div>
         <div class="centered">
             <button id="btn-erase" :class="settings.themes[settings.data.theme]" @click="eraseBoard()" :disabled="!settings.game.playing">Erase</button>
@@ -394,9 +394,14 @@ function openSettings() {
     justify-content: center;
 }
 
-.equal {
-    width: 7%;
-    text-align: center;
+#time-title {
+    width: 50%;
+    text-align: right;
+}
+
+#time-remaining {
+    width: 50%;
+    text-align: left;
 }
 
 @media (min-width: 576px) {
@@ -406,10 +411,6 @@ function openSettings() {
         background-size: 360px 360px;
     }
 
-    .equal {
-        width: 6%;
-        text-align: center;
-    }
 }
 
 @media (min-width: 768px) {
@@ -425,11 +426,6 @@ function openSettings() {
         width: 600px;
         height: 600px;
         background-size: 600px 600px;
-    }
-
-    .equal {
-        width: 5.5%;
-        text-align: center;
     }
 }
 
@@ -453,18 +449,6 @@ function openSettings() {
         height: 250px;
         background-size: 250px 250px;
     }
-
-    .equal {
-        width: 2.8%;
-        text-align: center;
-    }
-}
-
-@media (min-width: 1920px) {
-    .equal {
-        width: 2%;
-        text-align: center;
-    }
 }
 
 @media (min-width: 2560px) {
@@ -472,11 +456,6 @@ function openSettings() {
         width: 400px;
         height: 400px;
         background-size: 400px 400px;
-    }
-
-    .equal {
-        width: 2.3%;
-        text-align: center;
     }
 }
 
