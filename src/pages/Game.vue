@@ -398,6 +398,19 @@ function openSettings() {
     text-align: center;
 }
 
+@media (min-width: 992px) {
+    #board {
+        width: 250px;
+        height: 250px;
+        background-size: 250px 250px;
+    }
+
+    .equal {
+        width: 2.8%;
+        text-align: center;
+    }
+}
+
 @media (min-width: 1280px) {
     #board {
         width: 250px;

@@ -109,6 +109,16 @@ function undoSettings() {
   color: rgb(37, 37, 37);
 }
 
+@media (min-width: 992px) {
+  .input-player {
+    padding: 4px;
+  }
+
+  #timer-check {
+    width: 8px;
+    height: 8px;
+  }
+}
 
 @media (min-width: 1280px) {
   .input-player {

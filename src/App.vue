@@ -207,6 +207,28 @@ input {
   display: inline;
 }
 
+@media (min-width: 992px) {
+  * {
+    font-size: 1em;
+  }
+
+  .padded {
+    padding-top: 18px;
+  }
+
+  button, input {
+    margin: 6px;
+    border-radius: 5px;
+  }
+
+  button {
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+}
+
 @media (min-width: 1280px) {
   * {
     font-size: 1em;
