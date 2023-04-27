@@ -110,11 +110,24 @@ function undoSettings() {
 }
 
 
-@media (min-width: 2560px) {
+@media (min-width: 1280px) {
+  .input-player {
+    padding: 4px;
+  }
+
+  #timer-check {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (min-width: 1600px) {
   .input-player {
     padding: 5px;
   }
+}
 
+@media (min-width: 2560px) {
   #timer-check {
     width: 13px;
     height: 13px;

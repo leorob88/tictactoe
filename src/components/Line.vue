@@ -21,7 +21,13 @@ svg {
 
 line {
   stroke: rgb(255, 0, 0);
-  stroke-width: 1.5;
+  stroke-width: 2;
+}
+
+@media (min-width: 1280px) {
+  line {
+    stroke-width: 2;
+  }
 }
 
 @media (min-width: 2560px) {

@@ -162,6 +162,12 @@ span {
   border-left-color: rgb(0, 0, 0);
 }
 
+@media (min-width: 1280px) {
+  span {
+    font-size: 3.2em;
+  }
+}
+
 @media (min-width: 1600px) {
   span {
     font-size: 2.8em;

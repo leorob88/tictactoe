@@ -207,6 +207,28 @@ input {
   display: inline;
 }
 
+@media (min-width: 1280px) {
+  * {
+    font-size: 1em;
+  }
+
+  .padded {
+    padding-top: 18px;
+  }
+
+  button, input {
+    margin: 6px;
+    border-radius: 5px;
+  }
+
+  button {
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+}
+
 @media (min-width: 1600px) {
   * {
     font-size: 1em;
@@ -226,12 +248,6 @@ input {
     padding-right: 10px;
     padding-top: 3px;
     padding-bottom: 3px;
-  }
-}
-
-@media (min-width: 1920px) {
-  button {
-    border: outset 2px black;
   }
 }
 
@@ -262,6 +278,7 @@ input {
     padding-right: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
+    border: outset 2px black;
   }
 }
 

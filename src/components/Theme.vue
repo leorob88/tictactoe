@@ -32,6 +32,17 @@ const themeId = "theme-" + props.id;
     margin-right: 8px;
 }
 
+@media (min-width: 1280px) {
+    .radio {
+        width: 8px;
+        height: 8px;
+    }
+
+    .theme-element {
+        margin-right: 7px;
+    }
+}
+
 @media (min-width: 2560px) {
     .radio {
         width: 13px;
