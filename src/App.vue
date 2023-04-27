@@ -30,10 +30,13 @@ let timer = setInterval(function () {
   }
 }, 1000);
 
+let ciao = document.body.clientWidth;
+
 </script>
 
 <template>
   <div id="main-page" :class="settings.themes[settings.data.theme]">
+    {{ ciao }}
     <Welcome v-if="settings.visibility.welcomeVisible" />
     <VirtualPlayer v-if="settings.visibility.virtualVisible" />
     <NewGame v-if="settings.visibility.newGameVisible" />
