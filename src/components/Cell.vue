@@ -108,7 +108,7 @@ function checkWinner() {
 span {
   display: table-cell;
   vertical-align: middle;
-  font-size: 4.8em;
+  font-size: 4.5em;
 }
 
 .selected {

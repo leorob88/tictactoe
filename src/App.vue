@@ -46,7 +46,7 @@ let timer = setInterval(function () {
 
 * {
   font-family: "Quicksand", "Verdana", "Arial", serif;
-  font-size: 0.91em;
+  font-size: 0.94em;
 }
 
 #main-page {
@@ -195,12 +195,8 @@ button.joker:disabled {
 }
 
 button, input {
-  margin: 2px;
+  margin: 3px;
   border-radius: 3px;
-}
-
-input {
-  font-size: 0.9em;
 }
 
 .inherit-size {
@@ -210,7 +206,7 @@ input {
 
 @media (min-width: 576px) {
   * {
-    font-size: 1em;
+    font-size: 1.04em;
   }
 
   button, input {
@@ -228,7 +224,7 @@ input {
 
 @media (min-width: 768px) {
   * {
-    font-size: 1.05em;
+    font-size: 1.09em;
   }
 
   .padded {
@@ -250,11 +246,23 @@ input {
 
 @media (min-width: 992px) {
   * {
-    font-size: 1.1em;
+    font-size: 1.14em;
   }
 
   .padded {
     padding-top: 18px;
+  }
+
+  button, input {
+    margin: 8px;
+    border-radius: 6px;
+  }
+
+  button {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 }
 
@@ -265,6 +273,18 @@ input {
 
   .padded {
     padding-top: 18px;
+  }
+
+  button, input {
+    margin: 6px;
+    border-radius: 5px;
+  }
+
+  button {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
 }
 
@@ -298,10 +318,6 @@ input {
 
   .padded {
     padding-top: 30px;
-  }
-
-  input {
-    font-size: 1em;
   }
 
   button, input {

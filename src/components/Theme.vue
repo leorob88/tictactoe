@@ -24,44 +24,44 @@ const themeId = "theme-" + props.id;
 <style>
 
 .radio {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
 }
 
 .theme-element {
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
 @media (min-width: 576px) {
     .radio {
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
     }
 
     .theme-element {
-        margin-right: 7px;
+        margin-right: 8px;
     }
 }
 
 @media (min-width: 768px) {
     .radio {
-        width: 11px;
-        height: 11px;
+        width: 13px;
+        height: 13px;
     }
 
     .theme-element {
-        margin-right: 9px;
+        margin-right: 11px;
     }
 }
 
 @media (min-width: 992px) {
     .radio {
-        width: 12px;
-        height: 12px;
+        width: 15px;
+        height: 15px;
     }
 
     .theme-element {
-        margin-right: 10px;
+        margin-right: 13px;
     }
 }
 

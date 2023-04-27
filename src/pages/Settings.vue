@@ -69,13 +69,17 @@ function undoSettings() {
 
 <style>
 
+input {
+  font-size: 0.9em;
+}
+
 .input-player {
-  padding: 2px;
+  padding: 3px;
 }
 
 #timer-check {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 .input-player.dark {
@@ -118,17 +122,6 @@ function undoSettings() {
 
 @media (min-width: 576px) {
   .input-player {
-    padding: 3px;
-  }
-
-  #timer-check {
-    width: 8px;
-    height: 8px;
-  }
-}
-
-@media (min-width: 768px) {
-  .input-player {
     padding: 5px;
   }
 
@@ -138,16 +131,31 @@ function undoSettings() {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
+  .input-player {
+    padding: 7px;
+  }
+
   #timer-check {
     width: 12px;
     height: 12px;
   }
 }
 
+@media (min-width: 992px) {
+  .input-player {
+    padding: 8px;
+  }
+
+  #timer-check {
+    width: 15px;
+    height: 15px;
+  }
+}
+
 @media (min-width: 1280px) {
   .input-player {
-    padding: 4px;
+    padding: 5px;
   }
 
   #timer-check {
@@ -156,13 +164,11 @@ function undoSettings() {
   }
 }
 
-@media (min-width: 1600px) {
-  .input-player {
-    padding: 5px;
-  }
-}
-
 @media (min-width: 2560px) {
+  input {
+    font-size: 1em;
+  }
+
   #timer-check {
     width: 13px;
     height: 13px;

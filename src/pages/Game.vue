@@ -296,12 +296,20 @@ function openSettings() {
         </div>
         <div :class="['centered', 'padded', { 'game-over': !settings.game.playing }]">
             <div>
-                <p>
+                <p class="message">
                     {{
-                        settings.game.tris ? settings.game.winner + ' WINS THIS GAME!' :
+                        settings.game.tris ? settings.game.winner :
                         settings.game.draw ? 'PLAYERS CAME TO A DRAW!' :
-                        settings.game.timeUp ? 'TIME IS UP! ' + settings.game.winner + ' WINS THIS GAME!' :
-                        'Currently playing: ' + (settings.game.currentPlayer == 1 ? settings.data.player1 : settings.data.player2)
+                        settings.game.timeUp ? 'TIME IS UP! ' :
+                        'Currently playing: '
+                    }}
+                </p>
+                <p class="message">
+                    {{
+                        settings.game.tris ? ' WINS THIS GAME!' :
+                        settings.game.draw ? '' : 
+                        settings.game.timeUp ? settings.game.winner + ' WINS THIS GAME!' :
+                        settings.game.currentPlayer == 1 ? settings.data.player1 : settings.data.player2
                     }}
                 </p>
             </div>
@@ -357,6 +365,11 @@ function openSettings() {
     100% {
         transform: scale(1, 1);
     }
+}
+
+.message {
+    text-align: center;
+    font-weight: bold;
 }
 
 #board {
