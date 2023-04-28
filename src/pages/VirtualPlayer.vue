@@ -48,4 +48,10 @@ function startGame(secondPlayer) {
   }
 }
 
+@media (min-width: 3840px) {
+    #ai-player {
+    padding-top: 300px;
+  }
+}
+
 </style>

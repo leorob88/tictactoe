@@ -49,4 +49,10 @@ function startGame() {
   }
 }
 
+@media (min-width: 3840px) {
+  #new-game {
+    padding-top: 300px;
+  }
+}
+
 </style>

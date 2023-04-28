@@ -3,7 +3,8 @@
 import { inject } from 'vue';
 import { settings } from "../assets/js/Settings.js";
 
-let line = inject("line");
+let lineUpdate = inject("lineUpdate");
+let checkDraw = inject("checkDraw");
 
 const emit = defineEmits(["cpu"]);
 const props = defineProps({
@@ -27,7 +28,7 @@ function cellPlay(position) {
     checkWinner();
     if (settings.game.tris) {
       settings.game.playing = false;
-      line();
+      lineUpdate();
     } else {
       checkDraw();
       if (settings.game.playing) {
@@ -42,17 +43,6 @@ function cellPlay(position) {
         settings.game.remainingTime = 20;
       }
     }
-  }
-}
-
-function checkDraw() {
-  let totalMoves = 0;
-  for (let cell in settings.game.movesDone) {
-    if (settings.game.movesDone[cell] != "") { totalMoves++; }
-  }
-  if (totalMoves == 9) {
-    settings.game.playing = false;
-    settings.game.draw = true;
   }
 }
 
@@ -87,7 +77,7 @@ function checkWinner() {
 
 <template>
   <div :class="['cell', settings.themes[settings.data.theme], props.classes, { 'selected': settings.game.hoveredCell == props.position && settings.game.movesDone[props.position] == '' && settings.game.playing }]">
-    <span :id="props.position" @mouseenter="settings.game.hoveredCell = position" @mouseleave="settings.game.hoveredCell = ''" @click="cellPlay(props.position)">
+    <span :id="props.position" @mouseenter="settings.game.hoveredCell = props.position" @mouseleave="settings.game.hoveredCell = ''" @click="cellPlay(props.position)">
       {{ settings.game.movesDone[props.position] }}
     </span>
   </div>
@@ -97,7 +87,7 @@ function checkWinner() {
 
 .cell {
   display: table;
-  width: 33%;
+  width: 33.33%;
   padding: 0;
   margin: 0;
   border-color: rgba(0, 0, 0, 0);

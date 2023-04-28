@@ -1,11 +1,12 @@
 <script setup>
 
-import { provide, onMounted, onRenderTriggered } from "vue";
+import { provide, onMounted } from "vue";
 import Cell from "../components/Cell.vue";
-import Line from "../components/Line.vue";
+import RedLine from "../components/RedLine.vue";
 import { settings } from "../assets/js/Settings.js";
 
-provide("line", lineUpdate);
+provide("lineUpdate", lineUpdate);
+provide("checkDraw", checkDraw);
 
 // victory ilne element needs fixes to avoid unintended positioning on window resize
 onMounted(() => {
@@ -16,7 +17,6 @@ onMounted(() => {
 // draw a line striking through the winning cells
 function lineUpdate() {
     if (settings.game.tris) {
-        // winning cell is usually top left, but one combination has it in bottom left, so the svg still needs to be top left
         let index = settings.game.winningTriad.index;
         if (index == -1 || index == 7) {
             settings.game.svg_line.winningPosition = "upleft";
@@ -24,11 +24,11 @@ function lineUpdate() {
             settings.game.svg_line.winningPosition = settings.game.winningTriad.cells[0];
         }
         let cell = document.getElementById(settings.game.svg_line.winningPosition);
-        let div = document.getElementById("centermiddle");
-        let width = div.getBoundingClientRect().width, height = div.getBoundingClientRect().height;
+        let sample = document.getElementById(settings.game.winningTriad.cells[1]);
+        let width = sample.getBoundingClientRect().width, height = sample.getBoundingClientRect().height;
         if (index < 3 || index > 5) { width *= 3; }
         if (index > 2) { height *= 3; }
-        // setting svg position and size
+        // setting svg to contain the winning triad
         settings.game.svg_line.left = cell.getBoundingClientRect().left;
         settings.game.svg_line.top = cell.getBoundingClientRect().top;
         settings.game.svg_line.width = width;
@@ -64,6 +64,18 @@ function lineUpdate() {
         } else {
             y2 /= 2;
         }
+        //minor graphical fix
+        if (document.body.clientWidth >= 3840) {
+            y1 += 3;
+            y2 += 3;
+        } else if (document.body.clientWidth >= 2560) {
+            y1 += 2;
+            y2 += 2;
+        } else if (document.body.clientWidth >= 576) {
+            y1++;
+            y2++;
+        }
+        //end fix
         settings.game.svg_line.x1 = x1;
         settings.game.svg_line.y1 = y1;
         settings.game.svg_line.x2 = x2;
@@ -71,7 +83,7 @@ function lineUpdate() {
     }
 }
 
-// game starts and cpu has first move
+// when game starts and cpu has first move
 if (settings.game.vsCpu && settings.game.currentPlayer == 2 && settings.game.playing) {
     randomMove()
 }
@@ -124,6 +136,7 @@ function virtualPlayerMove() {
             if (allMoves[currentTriad[0]] == "O") { pairMoves.push(currentTriad[0]); } else { noOCell = currentTriad[0]; }
             if (allMoves[currentTriad[1]] == "O") { pairMoves.push(currentTriad[1]); } else { noOCell = currentTriad[1]; }
             if (allMoves[currentTriad[2]] == "O") { pairMoves.push(currentTriad[2]); } else { noOCell = currentTriad[2]; }
+            // for any combination, if 2 cells have O and 1 is empty, it's a possible winning combination for a.i.
             if (pairMoves.length == 2 && allMoves[noOCell] == "") { almostWon.push({ currentTriad, pairMoves, noOCell, index }) }
         }
         if (almostWon.length > 0) {
@@ -152,6 +165,7 @@ function virtualPlayerMove() {
                 if (allMoves[currentTriad[0]] == "X") { pairMoves.push(currentTriad[0]); } else { noXCell = currentTriad[0]; }
                 if (allMoves[currentTriad[1]] == "X") { pairMoves.push(currentTriad[1]); } else { noXCell = currentTriad[1]; }
                 if (allMoves[currentTriad[2]] == "X") { pairMoves.push(currentTriad[2]); } else { noXCell = currentTriad[2]; }
+                // for any combination, if 2 cells have X and 1 is empty, it's a possible winning combination for the player
                 if (pairMoves.length == 2 && allMoves[noXCell] == "") { playerAlmostWon.push({ currentTriad, pairMoves, noXCell, index }) }
             }
             if (playerAlmostWon.length > 0) {
@@ -172,6 +186,7 @@ function virtualPlayerMove() {
                         let checkTriad = settings.winningCombinations[a];
                         if (checkTriad.includes(aiMoves[i])) {
                             checkTriad = checkTriad.filter(checkCell => checkCell != aiMoves[i]);
+                            // any combination is useful if, removing the only O inside, the other 2 cells are empty
                             if (settings.game.movesDone[checkTriad[0]] == "" && settings.game.movesDone[checkTriad[1]] == "") {
                                 triadsForWin.push(checkTriad);
                             }
@@ -214,10 +229,7 @@ function checkDraw() {
 
 // random move for a.i.
 function randomMove() {
-    let freeCells = [];
-    for (let move in settings.game.movesDone) {
-        if (settings.game.movesDone[move] == "") { freeCells.push(move); }
-    }
+    let freeCells = Object.keys(settings.game.movesDone).filter(move => settings.game.movesDone[move] === "")
     let randomMove = Math.floor(Math.random() * freeCells.length);
     settings.game.movesDone[freeCells[randomMove]] = "O";
     checkDraw();
@@ -272,7 +284,7 @@ function openSettings() {
 
 <template>
     <div id="game" class="dn-padded">
-        <Line />
+        <RedLine />
         <div id="board-container" class="centered">
             <div></div>
             <div id="board" :class="settings.themes[settings.data.theme]">
@@ -333,7 +345,7 @@ function openSettings() {
             <button id="btn-erase" :class="settings.themes[settings.data.theme]" @click="eraseBoard()" :disabled="!settings.game.playing">Erase</button>
             <button id="btn-settings" :class="settings.themes[settings.data.theme]" @click="openSettings()">Settings</button>
         </div>
-        <div v-show="!settings.game.playing" class="centered">
+        <div v-if="!settings.game.playing" class="centered">
             <button id="btn-rematch" :class="settings.themes[settings.data.theme]" @click="eraseBoard()">Rematch</button>
         </div>
     </div>
@@ -389,7 +401,7 @@ function openSettings() {
 .row {
     display: flex;
     justify-content: center;
-    height: 33%;
+    height: 33.33%;
 }
 
 .player-score {
